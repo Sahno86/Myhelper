@@ -19,11 +19,13 @@ from django.urls import path, include
 # from myhelper.salary import urls
 
 import salary.urls
+import todo.urls
 from main_page.views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('salary', include(salary.urls)),
-    path('', main)
+    path('', main),
+    path('todo/', include(todo.urls)),
 
 ]

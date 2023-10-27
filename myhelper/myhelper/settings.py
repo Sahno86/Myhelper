@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'salary.apps.SalaryConfig',
-    'main_page.apps.MainPageConfig'
+    'main_page.apps.MainPageConfig',
+    'todo.apps.TodoConfig',
 
 ]
 
