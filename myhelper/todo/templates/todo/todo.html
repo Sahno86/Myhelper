@@ -2,9 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>todo</title>
 </head>
 <body>
 <h1>Тестовая страница todo</h1>
+{% block content %}
+    {% for t in table %}
+        <p>{{t.title}}   {{t.is_done}}</p>
+    {% endfor %}
+{% endblock %}
 </body>
 </html>

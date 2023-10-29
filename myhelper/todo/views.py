@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
-
-# Create your views here.
+from .models import ToDo
 def todo(request):
-    return render(request, 'todo/todo.html')
+    table = ToDo.objects.all()
+    return render(request, 'todo/todo.html', {'table': table})

@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 
 def main(request):
-    return HttpResponse('Приветствие')
+    return HttpResponse('Переход на <a href=http://127.0.0.1:8000/todo/>todo</a>')
