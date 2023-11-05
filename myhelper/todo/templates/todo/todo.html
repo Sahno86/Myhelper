@@ -9,6 +9,8 @@
 {% block content %}
     {% for t in table %}
         <p>{{t.title}}   {{t.is_done}}</p>
+<form><button name="add" value="add_todo">Добавить задачу</button></form>
+<form><button name="del" value="del_todo">Удалить задачу</button></form>
     {% endfor %}
 {% endblock %}
 </body>
