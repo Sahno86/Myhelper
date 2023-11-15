@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .models import ToDo
 def todo(request):
     table = ToDo.objects.all()
-    return render(request, 'todo/todo.html', {'table': table})
+    return render(request, 'todo/todo.html', {'table': table, 'title': 'todo'})
 
 def add_todo(request):
     add_button_test = request.GET.get("add")
