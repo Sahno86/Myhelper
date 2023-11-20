@@ -14,7 +14,7 @@ def add_todo(request):
     if request.method == "POST":
         add_todo_task = ToDo()
         add_todo_task.title = request.POST.get("add")
-        # add_todo_task.is_done = request.POST.get("is_done")
+        add_todo_task.is_done = False
         add_todo_task.save()
     return HttpResponseRedirect('/todo')
 

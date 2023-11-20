@@ -11,13 +11,14 @@
 
 <!--Кнопка добавления задания-->
 {% block add %}
-<form>
-    {% csrf_token %}
-    <label>Введите новое задание</label>
-    <input>
-    <button name="add" formmethod="post" formaction="add_todo">Добавить задачу</button>
-</form>
-</br>
+    <form method="post" action="add_todo/">
+        {% csrf_token %}
+        <label>Введите новое задание</label>
+        <br>
+        <p>Задание:<br> <input name="add" type="text"></p>
+        <input type="submit" value="send">
+    </form>
+    <br>
 {% endblock add %}
 
 <!--Блок контента-->
