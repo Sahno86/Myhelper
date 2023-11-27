@@ -16,7 +16,7 @@
         <label>Введите новое задание</label>
         <br>
         <p>Задание:<br> <input name="add" type="text"></p>
-        <input type="submit" value="send">
+        <input type="submit" value="Добавить задание">
     </form>
     <br>
 {% endblock add %}
@@ -27,7 +27,11 @@
         <p>{{t.title}}   {{t.is_done}}</p>
 
 <!--Кнопка удаления задания-->
-<form><button name="del" value="del_todo">Удалить задачу</button></form>
+<form method="post" action="{% url 'del_todo' todo_id=todo.id">
+    <input type="submit" value="Удалить задание" name="del">
+    {% csrf_token %}
+</form>
+
     {% endfor %}
 {% endblock %}
 

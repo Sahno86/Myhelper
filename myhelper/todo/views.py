@@ -19,6 +19,12 @@ def add_todo(request):
     return HttpResponseRedirect('/todo')
 
 
-# def del_todo(request):
-#     del_button_test = request.GET.get("del")
-#     return HttpResponse(f'{del_button_test}Сработала кнопка удаления')
+@require_http_methods(["POST"])
+def del_todo(request, todo_id):
+    if request.method == "POST":
+        del_todo_task = ToDo()
+        del_todo_task.pk = request.POST.get(id=todo_id)
+        del_todo_task.delete()
+    return HttpResponseRedirect('/todo')
+
+
