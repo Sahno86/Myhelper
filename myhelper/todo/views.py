@@ -1,12 +1,21 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from .models import ToDo
+from django.views import View
+from django.views.generic import TemplateView, ListView
+
+from .models import *
 from django.views.decorators.http import require_http_methods
 
 
-def todo(request):
-    todo_obj = ToDo.objects.all()
-    return render(request, 'todo/todo.html', {'todo_obj': todo_obj, 'title': 'todo'})
+class ToDo(TemplateView):
+    template_name = 'todo/todo.html'
+
+
+
+
+# def todo(request):
+#     todo_obj = ToDo.objects.all()
+#     return render(request, 'todo/todo.html', {'todo_obj': todo_obj, 'title': 'todo'})
 
 
 @require_http_methods(["POST"])
@@ -26,5 +35,3 @@ def del_todo(request, todo_id):
         del_todo_task.pk = request.POST.get(id=todo_id)
         del_todo_task.delete()
     return HttpResponseRedirect('/todo')
-
-
