@@ -1,0 +1,12 @@
+{% extends 'todo.html' %}
+
+{% block content %}
+<p>тест</p>
+<ul>
+    {% for todos in object_list %}
+    <li>
+        {{todos}}
+    </li>
+</ul>
+
+{% endblock %}
