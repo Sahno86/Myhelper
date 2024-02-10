@@ -11,13 +11,13 @@ class ToDo(TemplateView):
     template_name = 'todo/todo.html'
 
 
-class ToDoList(ListView):
-    template_name = 'todo/list_todo'
-    model = ToDo
+class ToDoList(TemplateView):
+    template_name = 'todo/list_todo.html'
+    # model = ToDo
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     return context
 
 
 # def todo(request):

@@ -1,12 +1,13 @@
-{% extends 'todo.html' %}
+{% extends 'todo/todo.html' %}
 
-{% block content %}
-<p>тест</p>
-<ul>
-    {% for todos in object_list %}
-    <li>
-        {{todos}}
-    </li>
-</ul>
+    {% block content %}
+        <p>тест</p>
+        <ul>
+            {% for todos in object_list %}
+            <li>
+                {{todos}}
+            </li>
+            {% endfor %}
+        </ul>
 
-{% endblock %}
+    {% endblock %}
