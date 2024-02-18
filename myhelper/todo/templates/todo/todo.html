@@ -16,9 +16,26 @@
 </ul>
     {% endfor %}
 
-
-
 <!--Кнопка добавления задания-->
+
+<h3>Добавить задание</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+</form>
+
+<!--<form>-->
+<!--    <textarea name="input_task" id="" cols="50" rows="2"></textarea>-->
+<!--    <br>-->
+<!--    <input type="checkbox" name="input_is_done" id="input_is_done_id">-->
+<!--    <label for="input_is_done_id">Выполнено?</label>-->
+<!--    <br>-->
+<!--    <input type="submit" value="Добавить">-->
+<!--</form>-->
+
+
 <!--{% block add %}-->
 <!--    <form method="post" action="add_todo/">-->
 <!--        {% csrf_token %}-->
