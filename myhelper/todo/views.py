@@ -8,8 +8,9 @@ from .models import ToDo
 from django.views.decorators.http import require_http_methods
 
 
-class ToDo(TemplateView):
+class ToDo(ListView):
     template_name = 'todo/todo.html'
+    model = ToDo
 
 
 @require_http_methods(["POST"])
