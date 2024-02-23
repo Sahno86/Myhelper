@@ -1,26 +1,32 @@
+from django.forms import ModelForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, ListView, FormView
+from django.views.generic import ListView, CreateView, FormView
 
 from . import models
 from .forms import *
-from .models import ToDo
+from .models import ToDo, ToDoForm
 from django.views.decorators.http import require_http_methods
 
 
 class ToDo(ListView):
     template_name = 'todo/todo.html'
     model = ToDo
+    extra_context = {'title': 'todo'}
 
 
 # Добавление задания
-
-class AddToDoForm(FormView):
+class AddToDo(FormView):
+    form_class = ToDoForm
     template_name = 'todo/todo.html'
-    form_class = AddToDo
-    model = ToDo
     success_url = 'todo/todo.html'
+
+# class AddToDoForm(ModelForm):
+#     model = ToDo
+#     fields = ['title', 'is_done']
+
 
 # @require_http_methods(["POST"])
 # def add_todo(request):
