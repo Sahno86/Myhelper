@@ -25,7 +25,7 @@ from main_page.views import main
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('salary', include(salary.urls)),
-    path('', main),
+    path('', main, name='main'),
     path('todo/', include(todo.urls)),
 
 ]

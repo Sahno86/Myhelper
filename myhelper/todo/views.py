@@ -1,16 +1,12 @@
-from django.forms import ModelForm
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.views import View
-from django.views.generic import ListView, CreateView, FormView
 
-from . import models
-from .forms import *
-from .models import ToDo, ToDoForm
+from django.views.generic import ListView, CreateView, FormView, TemplateView
+
+from .forms import ToDoForm
+from .models import ToDo
 from django.views.decorators.http import require_http_methods
 
 
+# Отображение страницы todo
 class ToDo(ListView):
     template_name = 'todo/todo.html'
     model = ToDo
@@ -18,10 +14,17 @@ class ToDo(ListView):
 
 
 # Добавление задания
-class AddToDo(FormView):
-    form_class = ToDoForm
-    template_name = 'todo/todo.html'
-    success_url = 'todo/todo.html'
+
+class AddToDo(TemplateView):
+    template_name = 'todo/todo_form.html'
+
+# class AddToDo(CreateView):
+
+# class AddToDo(FormView):
+#     form_class = ToDoForm
+#     template_name = 'todo/todo_form.html'
+#     success_url = 'todo/todo_form.html'
+#     form = ToDoForm
 
 # class AddToDoForm(ModelForm):
 #     model = ToDo

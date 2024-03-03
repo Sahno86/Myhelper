@@ -7,9 +7,6 @@ class ToDo(models.Model):
     is_done = models.BooleanField('Завершено', default=False, name='is_done')
 
 
-class ToDoForm(ModelForm):
-    model = ToDo
-    fields = ['title', 'is_done']
 
 
 # form = ToDoForm()

@@ -9,12 +9,16 @@
 
 </head>
 <body>
-    <a href="http://127.0.0.1:8000/">На главную</a>
+    <a href="/">На главную</a>
     <br>
-    <a href="http://127.0.0.1:8000/todo/">Переход на todo</a>
+    <a href="/todo/">Переход на todo</a>
     <br>
-    <a href="http://127.0.0.1:8000/admin/">Админка</a>
+    <a href="/admin/">Админка</a>
     <br>
+
+{% block form %}
+{% endblock %}
+
         {% block content %}
 
     <!--    Подключение Bootstrap-->
