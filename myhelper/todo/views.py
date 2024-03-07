@@ -1,4 +1,5 @@
-
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.views.generic import ListView, CreateView, FormView, TemplateView
 
 from .forms import ToDoForm
@@ -15,36 +16,21 @@ class ToDo(ListView):
 
 # Добавление задания
 
-class AddToDo(TemplateView):
-    template_name = 'todo/todo_form.html'
+def add_todo(request):
+    # if this is a POST request we need to process the form data
+    if request.method == "POST":
+        # create a form instance and populate it with data from the request:
+        form = ToDoForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect("/todo/")
 
-# class AddToDo(CreateView):
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = ToDoForm()
 
-# class AddToDo(FormView):
-#     form_class = ToDoForm
-#     template_name = 'todo/todo_form.html'
-#     success_url = 'todo/todo_form.html'
-#     form = ToDoForm
+    return render(request, "todo/todo.html", {"form": form})
 
-# class AddToDoForm(ModelForm):
-#     model = ToDo
-#     fields = ['title', 'is_done']
-
-
-# @require_http_methods(["POST"])
-# def add_todo(request):
-#     if request.method == "POST":
-#         add_todo_task = models.ToDo()
-#         add_todo_task.title = request.POST.get("add")
-#         add_todo_task.is_done = False
-#         add_todo_task.save()
-#     return HttpResponseRedirect('/todo')
-#
-#
-# @require_http_methods(["POST"])
-# def del_todo(request, todo_id):
-#     if request.method == "POST":
-#         del_todo_task = ToDo()
-#         del_todo_task.pk = request.POST.get(id=todo_id)
-#         del_todo_task.delete()
-#     return HttpResponseRedirect('/todo')

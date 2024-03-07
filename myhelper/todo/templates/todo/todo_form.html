@@ -3,4 +3,10 @@
 
 <h2>Добавить задание</h2>
 
+<form action="/todo/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
 {% endblock %}
