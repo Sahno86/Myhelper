@@ -32,5 +32,5 @@ def add_todo(request):
     else:
         form = ToDoForm()
 
-    return render(request, "todo/todo.html", {"form": form})
+    return render(request, "todo/todo_form.html", {"form": form})
 
