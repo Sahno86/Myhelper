@@ -5,7 +5,7 @@
 
 <p>Здесь должна быть форма</p>
 
-<form action="/todo/" method="post">
+<form action="{% url 'add_todo' %}" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">

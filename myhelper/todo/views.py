@@ -25,8 +25,9 @@ def add_todo(request):
         if form.is_valid():
             # process the data in form.cleaned_data as required
             # ...
+            form.save()
             # redirect to a new URL:
-            return HttpResponseRedirect("/todo/")
+            return HttpResponseRedirect("todo/todo.html")
 
     # if a GET (or any other method) we'll create a blank form
     else:
