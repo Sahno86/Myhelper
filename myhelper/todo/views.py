@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, FormView, TemplateView
 
@@ -27,7 +27,7 @@ def add_todo(request):
             # ...
             form.save()
             # redirect to a new URL:
-            return HttpResponseRedirect("todo/todo.html")
+            return render(request,"todo/todo.html")
 
     # if a GET (or any other method) we'll create a blank form
     else:
