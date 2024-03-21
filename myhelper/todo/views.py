@@ -27,7 +27,7 @@ def add_todo(request):
             # ...
             form.save()
             # redirect to a new URL:
-            return render(request,"todo/todo.html")
+            return render(request, "todo/todo.html")
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -35,3 +35,6 @@ def add_todo(request):
 
     return render(request, "todo/todo_form.html", {"form": form})
 
+
+def del_todo(request):
+    pass

@@ -11,6 +11,7 @@
     {% for task in object_list %}
         <li>{{ task.title }}</li>
         <li>{{ task.is_done }}</li>
+        <button type="submit" formaction="del_todo" formmethod="post">Удалить</button>
         <br>
 </ul>
     {% endfor %}
