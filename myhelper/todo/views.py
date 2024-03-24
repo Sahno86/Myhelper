@@ -16,24 +16,34 @@ class ToDo(ListView):
 
 # Добавление задания
 
-def add_todo(request):
-    # if this is a POST request we need to process the form data
-    if request.method == "POST":
-        # create a form instance and populate it with data from the request:
-        form = ToDoForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            form.save()
-            # redirect to a new URL:
-            return render(request, "todo/todo.html")
+class AddToDo(CreateView):
+    template_name = 'todo/todo_form.html'
+    form_class = ToDoForm
+    success_url = 'succes_add_todo'
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = ToDoForm()
 
-    return render(request, "todo/todo_form.html", {"form": form})
+class SuccesAddToDo(ListView):
+    template_name = 'succes_add_todo'
+
+
+# def add_todo(request):
+#     # if this is a POST request we need to process the form data
+#     if request.method == "POST":
+#         # create a form instance and populate it with data from the request:
+#         form = ToDoForm(request.POST)
+#         # check whether it's valid:
+#         if form.is_valid():
+#             # process the data in form.cleaned_data as required
+#             # ...
+#             form.save()
+#             # redirect to a new URL:
+#             return render(request, "todo/todo.html")
+#
+#     # if a GET (or any other method) we'll create a blank form
+#     else:
+#         form = ToDoForm()
+#
+#     return render(request, "todo/todo_form.html", {"form": form})
 
 
 def del_todo(request):
