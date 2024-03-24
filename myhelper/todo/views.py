@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, FormView, TemplateView
 
 from .forms import ToDoForm
@@ -19,11 +20,11 @@ class ToDo(ListView):
 class AddToDo(CreateView):
     template_name = 'todo/todo_form.html'
     form_class = ToDoForm
-    success_url = 'succes_add_todo'
+    success_url = reverse_lazy('succes_add_todo')
 
 
-class SuccesAddToDo(ListView):
-    template_name = 'succes_add_todo'
+class SuccesAddToDo(TemplateView):
+    template_name = 'todo/succes_add_todo.html'
 
 
 # def add_todo(request):
