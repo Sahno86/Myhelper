@@ -23,9 +23,7 @@ class AddToDo(CreateView):
     success_url = reverse_lazy('todo')
 
 
-
-
 class DelToDo(DeleteView):
     template_name = 'todo/todo.html'
     model = ToDo
-    # success_url =
+    success_url = reverse_lazy('todo')
